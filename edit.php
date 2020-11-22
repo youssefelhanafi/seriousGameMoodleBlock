@@ -41,10 +41,10 @@ if ($mform->is_cancelled()) {
 } else if ($fromform = $mform->get_data()) {
   //In this case you process validated data. $mform->get_data() returns data posted in form.
     if($fromform->qcmqrm == '1'){
-        redirect($CFG->wwwroot . '/blocks/seriousgame/editqcmform.php', 'You canceled the form');
+        redirect($CFG->wwwroot . '/blocks/seriousgame/editqcmform.php', 'Remplissez le formulaire pour le QCM');
     }
     elseif($fromform->qcmqrm == '0'){
-        redirect($CFG->wwwroot . '/blocks/seriousgame/editqrmform.php', 'You canceled the form');
+        redirect($CFG->wwwroot . '/blocks/seriousgame/editqrmform.php', 'Remplissez le formulaire pour le QRM');
     }
 }
 echo $OUTPUT->header();

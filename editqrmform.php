@@ -23,15 +23,15 @@
  */
 
 require_once(__DIR__ . '/../../config.php');
-require_once($CFG->dirroot . '/blocks/seriousgame/classes/form/edit.php');
+require_once($CFG->dirroot . '/blocks/seriousgame/classes/form/editqrmform.php');
 
-$PAGE->set_url(new moodle_url('/blocks/seriousgame/edit.php'));
+$PAGE->set_url(new moodle_url('/blocks/seriousgame/editqrm.php'));
 $PAGE->set_context(\context_system::instance());
-$PAGE->set_title('Questionnaire form');
+$PAGE->set_title('Formulaire du QRM');
 
 
 // We want to display our form
-$mform = new edit();
+$mform = new editqrm();
 //Form processing and displaying is done here
 if ($mform->is_cancelled()) {
     //Handle form cancel operation, if cancel button is present on form
@@ -40,12 +40,7 @@ if ($mform->is_cancelled()) {
 
 } else if ($fromform = $mform->get_data()) {
   //In this case you process validated data. $mform->get_data() returns data posted in form.
-    if($fromform->qcmqrm == '1'){
-        redirect($CFG->wwwroot . '/blocks/seriousgame/editqcmform.php', 'You canceled the form');
-    }
-    elseif($fromform->qcmqrm == '0'){
-        redirect($CFG->wwwroot . '/blocks/seriousgame/editqrmform.php', 'You canceled the form');
-    }
+    
 }
 echo $OUTPUT->header();
 $mform->display();
