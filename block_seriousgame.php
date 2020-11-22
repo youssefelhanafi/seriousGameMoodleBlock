@@ -36,7 +36,7 @@ class block_seriousgame extends block_base {
         }
 
         $this->content = new stdClass;
-        $this->content->text   = ' <a href="manage.php">Formulaire Jeu</a> ';
+        $this->content->text   = ' <a href="../blocks/seriousgame/edit.php">Formulaire Jeu</a> ';
         //$this->content->footer = "Footer f kerek";
         return $this->content;
     }
