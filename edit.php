@@ -28,6 +28,7 @@ require_once($CFG->dirroot . '/blocks/seriousgame/classes/form/edit.php');
 $PAGE->set_url(new moodle_url('/blocks/seriousgame/edit.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('Questionnaire form');
+$PAGE->set_heading('Serious Game Formulaire');
 
 
 // We want to display our form
@@ -36,7 +37,7 @@ $mform = new edit();
 if ($mform->is_cancelled()) {
     //Handle form cancel operation, if cancel button is present on form
     // go back to manage.php page
-    redirect($CFG->wwwroot . '/blocks/seriousgame/manage.php', 'You canceled the form');
+    redirect($CFG->wwwroot , 'You canceled the form');
 
 } else if ($fromform = $mform->get_data()) {
   //In this case you process validated data. $mform->get_data() returns data posted in form.

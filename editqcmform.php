@@ -28,6 +28,7 @@ require_once($CFG->dirroot . '/blocks/seriousgame/classes/form/editqcmform.php')
 $PAGE->set_url(new moodle_url('/blocks/seriousgame/editqcm.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('Formulaire du QCM');
+$PAGE->set_heading('Formulaire QCM pour le Serious Game');
 
 
 // We want to display our form
@@ -40,7 +41,8 @@ if ($mform->is_cancelled()) {
 
 } else if ($fromform = $mform->get_data()) {
   //In this case you process validated data. $mform->get_data() returns data posted in form.
-    
+  var_dump($fromform);
+  die();  
 }
 echo $OUTPUT->header();
 $mform->display();

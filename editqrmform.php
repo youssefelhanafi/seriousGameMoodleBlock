@@ -28,7 +28,8 @@ require_once($CFG->dirroot . '/blocks/seriousgame/classes/form/editqrmform.php')
 $PAGE->set_url(new moodle_url('/blocks/seriousgame/editqrm.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('Formulaire du QRM');
-
+$PAGE->set_heading('Formulaire QRM pour le Serious Game');
+$context = get_system_context();
 
 // We want to display our form
 $mform = new editqrm();
@@ -40,6 +41,19 @@ if ($mform->is_cancelled()) {
 
 } else if ($fromform = $mform->get_data()) {
   //In this case you process validated data. $mform->get_data() returns data posted in form.
+  $fs = get_file_storage();
+ 
+// Prepare file record object
+    $fileinfo = array(
+        'contextid' => $context->id, // ID of context
+        'component' => 'mod_mymodule',     // usually = table name
+        'filearea' => 'myarea',     // usually = table name
+        'itemid' => 0,               // usually = ID of row in table
+        'filepath' => '/blocks/seriousgame/',           // any path beginning and ending in /
+        'filename' => 'wafink.txt'); // any filename
+    
+    // Create file containing text 'hello world'
+    $fs->create_file_from_string($fileinfo, 'hello world');
     
 }
 echo $OUTPUT->header();
