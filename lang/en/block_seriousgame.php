@@ -26,7 +26,7 @@
 $string['seriousgame:addinstance'] = 'Add a new seriousgame block';
 $string['seriousgame:myaddinstance'] = 'Add a new seriousgame block to Dashboard';
 $string['seriousgame'] = '(new seriousgame block)';
-$string['pluginname'] = 'Serious Game';
+$string['pluginname'] = 'Serious Game (Version Prof)';
 $string['qcm'] = 'QCM';
 $string['qrm'] = 'QRM';
 $string['question'] = 'Question';
