@@ -41,9 +41,28 @@ if ($mform->is_cancelled()) {
 
 } else if ($fromform = $mform->get_data()) {
   //In this case you process validated data. $mform->get_data() returns data posted in form.
-  var_dump($fromform);
-  die();  
-}
+
+  global $COURSE,$USER,$DB;
+  $usersql = 'select id,username,firstname,lastname from mdl_user where id = '.$USER->id;  
+  $coursesql = 'select id,fullname from mdl_course where id = '.$COURSE->id;
+  $userrecord = $DB->get_record_sql($usersql, $params=null, $strictness=IGNORE_MISSING);
+  $courserecord = $DB->get_record_sql($coursesql, $params=null, $strictness=IGNORE_MISSING);
+
+  $reponses = array($fromform->choix1,$fromform->choix2,$fromform->choix3);
+  
+  $array = array('Enseignant_id' => $userrecord->id,
+                  'Enseignant_prenom' => $userrecord->firstname,
+                  'Enseignant_nom' => $userrecord->lastname ,
+                  'Matiere' => $courserecord->fullname,
+
+                  'QCM_questions' => $fromform->question,
+                  'QCM_reponses' => $reponses,
+                  'QCM_bonnes_reponses' => $fromform->bonnereponse);
+  }
+  $fp = fopen('qcm'.$COURSE->id.'.json', 'w');
+  fwrite($fp, json_encode($array, JSON_PRETTY_PRINT));   // here it will print the array pretty
+  fclose($fp);
+
 echo $OUTPUT->header();
 $mform->display();
 echo $OUTPUT->footer();

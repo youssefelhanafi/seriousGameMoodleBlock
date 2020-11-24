@@ -39,9 +39,9 @@ class editqrm extends moodleform {
         $mform->setType('question', PARAM_NOTAGS);                   //Set type of element
         $mform->setDefault('question', 'Entrez la question');        //Default value
         //Bonne réponse
-        $mform->addElement('text', 'bonnereponse', get_string('bonnereponse','block_seriousgame')); // Add elements to your form
-        $mform->setType('bonnereponse', PARAM_NOTAGS);                   //Set type of element
-        $mform->setDefault('bonnereponse', 'Entrez la Bonnee réponse');        //Default value
+        //$mform->addElement('text', 'bonnereponse', get_string('bonnereponse','block_seriousgame')); // Add elements to your form
+        //$mform->setType('bonnereponse', PARAM_NOTAGS);                   //Set type of element
+        //$mform->setDefault('bonnereponse', 'Entrez la Bonnee réponse');        //Default value
         //Choix1
         $mform->addElement('text', 'choix1', get_string('choix1','block_seriousgame')); // Add elements to your form
         $mform->setType('choix1', PARAM_NOTAGS);                   //Set type of element
@@ -54,6 +54,10 @@ class editqrm extends moodleform {
         $mform->addElement('text', 'choix3', get_string('choix3','block_seriousgame')); // Add elements to your form
         $mform->setType('choix3', PARAM_NOTAGS);                   //Set type of element
         $mform->setDefault('choix3', 'Choix 3');        //Default value
+        //Choix4
+        $mform->addElement('text', 'choix4', get_string('choix4','block_seriousgame')); // Add elements to your form
+        $mform->setType('choix4', PARAM_NOTAGS);                   //Set type of element
+        $mform->setDefault('choix4', 'Choix 4');        //Default value
 
         $this->add_action_buttons();
 

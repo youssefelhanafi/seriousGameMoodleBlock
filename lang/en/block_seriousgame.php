@@ -34,3 +34,4 @@ $string['bonnereponse'] = 'Bonne réponse';
 $string['choix1'] = 'Choix 1';
 $string['choix2'] = 'Choix 2';
 $string['choix3'] = 'Choix 3';
+$string['choix4'] = 'Choix 4';
